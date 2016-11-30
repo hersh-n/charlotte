@@ -1,0 +1,50 @@
+// BREAKPOINTS
+$xs: new-breakpoint(max-width 767px);
+$sm: new-breakpoint(min-width 768px);
+$md: new-breakpoint(min-width 1024px);
+$lg: new-breakpoint(min-width 1440px);
+
+
+// COLOURS
+$container-color: #F0F0F0;
+$section-color: #DFDFDF;
+
+$blue: #405BAC;
+$yellow: #F4E00D;
+$red: #C8464E;
+
+$text-black: #0F0F0F;
+
+// FONTS
+$text-font: 'Josefin Slab', sans-serif;;
+
+$reg: 400;
+$bold: 600;
+
+// FONT SIZES
+
+$med-font: 1.5em;
+$lrg-font: 3em;
+
+@mixin content-block {
+  @include span-columns(10);
+  @include shift(1);
+  background-color: $section-color;
+  border: 0.2em solid $section-color;
+  border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+  font-family: $text-font;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  color: #0F0F0F;
+}
+
+@mixin container {
+  @include media(769px) {
+    @include outer-container(80%);
+  }
+
+  @include outer-container(100%);
+  background-color: $container-color;
+  height: 100%;
+}
+

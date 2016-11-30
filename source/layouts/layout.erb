@@ -7,14 +7,53 @@
 
     <!-- Use title if it's in the page YAML frontmatter -->
     <title><%= current_page.data.title || "Middleman" %></title>
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Slab:400,600" rel="stylesheet">
 
-    <link href='//fonts.googleapis.com/css?family=Lato:300,400' rel='stylesheet' type='text/css'>
+
+    <script
+      src="https://code.jquery.com/jquery-3.1.1.min.js"
+      integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+      crossorigin="anonymous">
+    </script>
 
     <%= stylesheet_link_tag :site %>
     <%= javascript_include_tag :all %>
   </head>
 
   <body class="<%= page_classes %>">
+    <header>
+      <div class="nav">
+        <p><a href="">Play</a></p>
+        <p><a href="">Colour</a></p>
+        <p><a href="">Music</a></p>
+        <p><a href="">About Charlotte</a></p>
+      </div>
+
+      <button class="hamburger hamburger--elastic" type="button">
+        <span class="hamburger-box">
+          <span class="hamburger-inner"></span>
+        </span>
+      </button>
+    </header>
     <%= yield %>
+
+      <footer>
+        <div class="footer-content">
+        <div class="contact">
+          <p>127 havelock street</p>
+          <p>Toront, Canada</p>
+          <p>6471111111</p>
+        </div>
+        <div class="links">
+          <p>Home</p>
+          <p>Play</p>
+          <p>Colour</p>
+          <p>Music</p>
+          <p>About Charlotte</p>
+        </div>
+        <div class="social"></div>
+
+        </div>
+      </footer>
   </body>
 </html>

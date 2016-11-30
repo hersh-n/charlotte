@@ -1,67 +1,147 @@
 @charset "utf-8";
 @import "normalize";
+@import "bourbon";
+@import "neat";
+@import "variables";
+@import "hamburger-settings";
+@import "hamburgers";
+
 
 body {
-  background: #ECC561;
-  text-align: center;
-  font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 1em;
-}
+  transition: all 0.5s ease;
 
-.logo img {
-  height: 18.75em;
-  margin-top: 6em;
-}
+  .container {
 
-h1 {
-  color: rgba(0,0,0,0.5);
-  font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 1.8em;
-  font-weight: 400;
-  margin: 0;
-}
+    @include container;
 
-.doc {
-  margin: 3em 0;
-  font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 1.1em;
-  font-weight: 300;
+    .hero-img {
 
-  a {
-    border: 1px solid white;
-    border-radius: 3px;
-    padding: 0.75em 0.7em;
-    color: white;
-    text-decoration: none;
-    transition: color 0.1s linear;
-    &:hover {
-      background: rgba(0,0,0,0.2);
-      color: white;
-      transition: all 0.15s linear;
+      @include span-columns(8);
+      @include shift(2);
+      margin-top: 1em;
+      margin-bottom: 1em;
+
+    }
+
+    .text-block {
+
+      @include content-block;
+      text-align: center;
+
+      p {
+
+        @include span-columns(10);
+        @include shift(1);
+
+      }
+    }
+
+    .panels {
+
+      @include span-columns(10);
+      @include shift(1);
+      margin-top: 2em;
+      margin-bottom: 2em;
+
+      .panel {
+
+        @include row();
+        @include span-columns(12);
+        font-family: $text-font;
+        text-align: center;
+
+        @include media(769px) {
+
+          @include span-columns(4);
+
+        }
+
+        .icon {
+          width: 100px;
+          height: 100px;
+          border: black 1px solid;
+          border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+
+        }
+      }
     }
   }
-}
 
-.welcome {
-  -webkit-animation-name: welcome;
-  -webkit-animation-duration: .9s;
-}
 
-@-webkit-keyframes welcome {
-  from {
-    -webkit-transform: scale(0);
-    opacity: 0;
+
+  footer {
+    @include container;
+
+    .footer-content {
+
+      @include content-block;
+      margin-bottom: 0;
+      border-radius: 255px 15px 225px 15px/15px 225px 0px 255px;
+
+      .contact {
+
+        @include span-columns(2);
+        @include shift(1);
+        border-right: 1px solid black;
+        border-radius: 255px 15px 225px 15px/15px 225px 0px 255px;
+        border-right-color: $red;
+
+      }
+
+      .links {
+        @include span-columns(6);
+        @include shift(2);
+
+        p {
+          display: inline-block;
+          margin: 1em;
+        }
+      }
+    }
   }
-  50% {
-   -webkit-transform: scale(0);
-   opacity: 0;
-  }
-  82.5% {
-    -webkit-transform: scale(1.03);
-    -webkit-animation-timing-function: ease-out;
-    opacity: 1;
-  }
-  to {
-    -webkit-transform: scale(1);
+
+
+  header {
+
+    .nav {
+      display: none;
+      @include media(769px) {
+
+        @include span-columns(12);
+        text-align: center;
+        position: fixed;
+        background-color: white;
+
+        p {
+
+          @include span-columns(3);
+
+          a {
+            text-decoration: none;
+            display: inline-block;
+            border-bottom: 1px solid transparent;
+            transition: 0.5s ease;
+            white-space: nowrap;
+            height: 25px;
+            color: $text-black;
+
+            &:hover {
+              border-bottom: 1px solid $blue;
+            }
+          }
+        }
+      }
+    }
+
+
+    .hamburger {
+      position: fixed;
+      @include media(769px) {
+        display: none;
+      }
+      &:focus {
+        outline: none;
+      }
+    }
   }
 }
